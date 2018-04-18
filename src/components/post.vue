@@ -48,6 +48,7 @@ export default {
        updatePost: function(){
          this.$store.commit('setContent',this.text);
          this.$store.dispatch('updatePost',{id:this.$route.params.id});
+         alert("Your Post has been saved");
        }
      }
 }

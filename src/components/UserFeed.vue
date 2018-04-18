@@ -80,6 +80,7 @@
        }).then(tweet => {
 	        this.text = "Enter Post Title";
           this.image = "";
+          this.$router.push({ name: 'post', params: { id: this.$store.getters.post.id}})
        });
      },
      remove: function(id){

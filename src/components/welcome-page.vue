@@ -1,6 +1,6 @@
 <template lang="html">
   <section>
-    <h2>Welcome to the community Sports Blog where you come to make your sports opinions heard.</h2>
+    <h2>Welcome to the community Sports Blog where you come to make your sports opinions heard. Register or log in if you would like access to create posts and share your ideas with the rest of the community.</h2>
     <form v-on:submit.prevent="register">
       <h2 style="color: #F04552;">Register</h2>
       <p>1. Choose a user name.</p>

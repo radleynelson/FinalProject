@@ -146,6 +146,7 @@ export default new Vuex.Store({
 
     addPost(context,post) {
       axios.post("/api/users/" + context.state.user.id + "/posts",post).then(response => {
+        context.commit('setPost',response.data.post)
 	return context.dispatch('getFeed');
       }).catch(err => {
 	console.log("addPost failed:",err);
