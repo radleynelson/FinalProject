@@ -2,6 +2,8 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 
 import axios from 'axios';
+import router from './router'
+
 
 Vue.use(Vuex);
 
@@ -145,8 +147,11 @@ export default new Vuex.Store({
     },
 
     addPost(context,post) {
-      axios.post("/api/users/" + context.state.user.id + "/posts",post).then(response => {
+      axios.post("/api/users/" + context.state.user.id + "/posts",post).then(function(response) {
         context.commit('setPost',response.data.post)
+        console.log('router', router);
+        console.log('data to go into router in vuex',response.data);
+        router.push({ name: 'post', params: { id: response.data.post.id}})
 	return context.dispatch('getFeed');
       }).catch(err => {
 	console.log("addPost failed:",err);
