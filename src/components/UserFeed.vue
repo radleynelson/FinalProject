@@ -25,6 +25,7 @@
       <p class="idline"><span class="time">{{item.created | since}}</span></p>
       <p class="tweet">{{item.title}}</p
       <p><router-link :to="{ name: 'post', params: {id: item.id}}">Edit Post</router-link></p>
+      <button class="alternate" type="button" v-on:click="remove(item.id)">Delete</button>
     </div>
   </div>
 </template>
@@ -80,6 +81,9 @@
 	        this.text = "Enter Post Title";
           this.image = "";
        });
+     },
+     remove: function(id){
+       this.$store.dispatch('deletePost',id)
      },
    }
  }

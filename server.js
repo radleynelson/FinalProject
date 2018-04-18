@@ -194,4 +194,13 @@ app.post('/api/users/:id/posts', (req, res) => {
   });
 });
 
+app.delete('/api/post/:postid', (req, res) => {
+  let id = parseInt(req.params.postid);
+  knex('posts').where('posts.id',id).first().del().then(post => {
+    res.status(200).json({post:post})
+  }).catch(error => {
+    res.status(500).json({error})
+  })
+});
+
 app.listen(3000, () => console.log('Server listening on port 3000!'));

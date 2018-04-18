@@ -188,6 +188,14 @@ export default new Vuex.Store({
       }).catch(err => {
         console.log("could get posts", err);
       })
+    },
+
+    deletePost(context,id) {
+      axios.delete("/api/post/"+id).then(response => {
+        context.dispatch('getFeed');
+      }).catch(err => {
+        console.log("Couldn't delete Post", err);
+      })
     }
   }
 
